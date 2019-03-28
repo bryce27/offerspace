@@ -83,8 +83,8 @@ class PagesController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:50|regex:[A-Za-z1-9 ]', // default title is "untitled" so we can allow null titles
-            'content' => 'nullable|regex:[A-Za-z1-9 ]', // regex to sanitize (remove special chars)
+            'title' => 'required|max:50|regex:/^[a-zA-Z0-9]+$/', // default title is "untitled" so we can allow null titles
+            'content' => 'nullable|regex:/^[a-zA-Z0-9]+$/', // regex to sanitize (remove special chars)
         ]);
         //$id = $request->input('id');
         $title = $request->input('title');
