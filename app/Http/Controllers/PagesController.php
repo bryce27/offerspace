@@ -37,8 +37,8 @@ class PagesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:50', // default title is "untitled" so we can allow null titles
-            'content' => 'nullable',
+            'title' => 'required|max:50|regex:/^[a-zA-Z0-9]+$/', // default title is "untitled" so we can allow null titles
+            'content' => 'nullable|regex:/^[a-zA-Z0-9]+$/',
         ]);
 
         $title = $request->input('title');
